@@ -1,14 +1,15 @@
 import { Route, Routes, Navigate } from 'react-router-dom'
-import { LoginPage } from '../../auth/pages/LoginPage'
-import { DashBoardPage } from '../pages/DashBoardPage'
-import { PeoplePage } from '../pages/PeoplePage'
+// import { LoginPage } from '../../auth/pages/LoginPage'
+import { HistogramPage } from '../pages/Histogram'
+import { NotGroupedPage } from '../pages/NotGroupedPage'
+import { PearsonPage } from '../pages/Pearson'
 
 export const AppRoutes = () => {
   return (
    <Routes>
-    <Route path="/" element={ <DashBoardPage /> } />
-    <Route path="/people" element={ <PeoplePage /> } /> 
-    <Route path="/location" element={ <LoginPage /> } />
+    <Route path="/" element={ <HistogramPage /> } />
+    <Route path="/not-grouped" element={ <NotGroupedPage /> } /> 
+    <Route path="/pearson" element={ <PearsonPage /> } />
 
     <Route path="/*" element={ <Navigate to="/" /> } />
    </Routes>

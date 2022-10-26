@@ -18,16 +18,16 @@ export const siderOptions = [
     {
       key: '1',
       icon: <BarChartOutlined />,
-      label: <Link to="/">Resumen</Link>,
+      label: <Link to="/">Histogram</Link>,
     },
     {
       key: '2',
       icon: <UsergroupDeleteOutlined />,
-      label:  <Link to="/people">Personas</Link>,
+      label:  <Link to="/not-grouped">Not Grouped</Link>,
     },
     {
       key: '3',
       icon: <PushpinOutlined />,
-      label: <Link to="/location">Lugares</Link>,
+      label: <Link to="/pearson">Pearson Asymmetry</Link>,
     },
   ]

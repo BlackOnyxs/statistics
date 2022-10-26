@@ -94,7 +94,7 @@ export const Router = () => {
                )
                : (
                   <>
-                    <Route path="/" element={ <AppRoutes /> } /> 
+                    <Route path="/*" element={ <AppRoutes /> } /> 
                     <Route path="/*" element={ <Navigate to="/" /> } /> 
                   </>
                )
