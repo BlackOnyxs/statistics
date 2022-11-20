@@ -4,16 +4,23 @@ import { createSlice } from '@reduxjs/toolkit';
 export const uiSlice = createSlice({
     name: 'ui',
     initialState: {
-        isPeopleModalOpen: false
+        isModalOpen: false,
+        data: null,
     },
     reducers: {
-        onOpenPeopleModal: ( state ) => {
-            state.isPeopleModalOpen = true 
+        onOpenModal: ( state ) => {
+            state.isModalOpen = true 
         },
-        onClosePeopleModal: ( state ) => {
-            state.isPeopleModalOpen = false 
+        onCloseModal: ( state ) => {
+            state.isModalOpen = false 
         },
+        onData: ( state, { payload }) => {
+            state.data = payload
+        },
+        onResetData: ( state ) => {
+            state.data = null;
+        }
     }
 });
 
-export const { onOpenPeopleModal, onClosePeopleModal } = uiSlice.actions;
+export const { onOpenModal, onCloseModal, onResetData, onData } = uiSlice.actions;
