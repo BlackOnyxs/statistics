@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Input, Form, Radio } from 'antd';
 import { UploadFile } from '../common/UploadFile';
-import { useUiStore } from '../../../hooks';
+import { useNotGrouped, useUiStore } from '../../../hooks';
 import { FileDoneOutlined } from '@ant-design/icons';
+import { focus, some, types } from '../../../data/menus';
 
 export const NotGroupedForm = () => {
     const form = Form.useFormInstance();
-    const { data } = useUiStore();
+    const { data, setType, type } = useUiStore();
+    const { setData, setFocus } = useNotGrouped()
+    useEffect(() => {
+     
+    }, [type])
+    
     return (
       <>
       <Form.Item
@@ -45,12 +51,36 @@ export const NotGroupedForm = () => {
           key="option"
       >
           <Radio.Group
-            onChange={ () => {} }
+            onChange={ (e) => {
+              setType(e.target.value)
+            } }
           >
-            <Radio value={1}>Moda, Media, Mediana</Radio>
-            <Radio value={2}>Varianza, Desviación, Coe. Variación</Radio>
+           {
+              types.map( (f, index) => {
+                if ( index !== 0)
+                return (
+                  <Radio key={ f.key} value={f.value}>{f.value}</Radio>
+                ) 
+              })
+             }
           </Radio.Group>
       </Form.Item>
+  
+          <Form.Item
+            label='Enfoque'
+            name='focus'
+            key='focus'
+        >
+          <Radio.Group onChange={ (e) => {
+            setFocus(e.target.value)
+          } }>
+             {
+              focus.map( f => (<Radio disabled={ type === 'Moda, Media, Mediana'} key={ f.key} value={f.value}>{f.value}</Radio>))
+             }
+          </Radio.Group>
+          </Form.Item>
+        )
+      
       </>
     )
 }

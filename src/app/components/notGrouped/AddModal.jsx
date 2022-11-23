@@ -1,23 +1,35 @@
 import { Button, Form, Modal } from 'antd'
 import React from 'react'
+import { types } from '../../../data/menus';
 
-import { useDatasets, useUiStore } from '../../../hooks/';
+import { useDatasets, useNotGrouped, useUiStore } from '../../../hooks/';
 import { useMode } from '../../../hooks/useMode';
 import { NotGroupedForm } from './NotGroupedForm';
 
 export const AddModal = () => {
     const [form] = Form.useForm();
 
-   const { isModalOpen, closeModal, data } = useUiStore();
+   const { isModalOpen, closeModal, data, type } = useUiStore();
    const { startSavingDataset, setActiveDataSet } = useDatasets();
+    const { createNotGrouped, type: agg, createSome } = useNotGrouped();
     const { create } = useMode();
 
     const activeHitogram = null;
 
-    const handleOk = ({ kvalue }) => {
+    const handleOk = ({ option, focus, some }) => {
         startSavingDataset( data );
         //Todo: add loading
-        create({ values: data, kvalue}, false)
+        console.log({typeModal: type})
+        if ( type === 'Moda, Media, Mediana' ) {
+            create({ values: data })
+        }else if (type === 'Varianza, Desviación, Coe. Variación'){
+          createNotGrouped({values: data, option, some })
+          // if (agg === 'Agrupado') {
+          //   createSome({values: data, option, some })
+          // }else if (agg === 'No agrupado'){
+            
+          // }
+        }
         setActiveDataSet({ dataset: data });
         closeModal();
         

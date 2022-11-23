@@ -49,7 +49,7 @@ export const HistogramPage = () => {
             justifyContent: 'center',
             
           }}>
-            <Col span={24}>
+            <Col span={20}>
               <TableConfig />
             </Col>
             <Col span={24}>

@@ -31,3 +31,50 @@ export const siderOptions = [
       label: <Link to="/pearson">Pearson Asymmetry</Link>,
     },
   ]
+
+  export const focus = [
+    {
+      key: '1',
+      value: 'Población',
+    },
+    {
+      key: '2',
+      value: 'Muestra',
+    },
+  ];
+
+  export const options = [
+    {
+      key: '2',
+      value: 'Moda, Media, Mediana',
+    },
+    {
+      key: '3',
+      value: 'Varianza, Desviación, Coe. Variación',
+    },
+  ]
+  export const some = [
+    {
+      key: '1',
+      value: 'Agrupado',
+    },
+    {
+      key: '2',
+      value: 'No agrupado',
+    },
+  ];
+
+  export const types = [
+    {
+      key: '1',
+      value: 'Histogram',
+    },
+    {
+      key: '2',
+      value: 'Moda, Media, Mediana',
+    },
+    {
+      key: '3',
+      value: 'Varianza, Desviación, Coe. Variación',
+    },
+  ]

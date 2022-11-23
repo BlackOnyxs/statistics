@@ -6,6 +6,7 @@ export const uiSlice = createSlice({
     initialState: {
         isModalOpen: false,
         data: null,
+        type: null,
     },
     reducers: {
         onOpenModal: ( state ) => {
@@ -17,10 +18,11 @@ export const uiSlice = createSlice({
         onData: ( state, { payload }) => {
             state.data = payload
         },
-        onResetData: ( state ) => {
-            state.data = null;
-        }
+        onType: ( state, { payload }) => {
+            state.type = payload
+        },
+        
     }
 });
 
-export const { onOpenModal, onCloseModal, onResetData, onData } = uiSlice.actions;
+export const { onOpenModal, onCloseModal, onData, onType } = uiSlice.actions;

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { onCloseModal, onData, onOpenModal, onResetData } from '../store/';
+import { onCloseModal, onData, onOpenModal, onType } from '../store/';
 
 export const useUiStore = () => {
 
@@ -8,6 +8,7 @@ export const useUiStore = () => {
     const {
         isModalOpen,
         data,
+        type,
     } = useSelector( state => state.ui );
 
     const openModal = () => {
@@ -21,19 +22,20 @@ export const useUiStore = () => {
     const setData = ( data ) => {
         dispatch( onData( data) )
     }
-
-    const resetData = () => {
-        dispatch( onResetData() )
+    
+    const setType = ( type ) => {
+        dispatch( onType( type) )
     }
 
     return {
         //* Propiedades
         isModalOpen,
         data,
+        type,
         //*Metodos
         openModal,
         closeModal,
         setData,
-        resetData,
+        setType,
     }
 }
